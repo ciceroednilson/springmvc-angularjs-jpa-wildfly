@@ -10,15 +10,15 @@
 
 ### Configurando Data Source no Wildfly 9 com MySQL.
 
-<p>Vamos acessar o diretório do Wildfly e vamos até wildfly-9.0.2.Final/modules/system/layers/base/com, agora vamos criar um diretório com o nome de mysql.</p>
-<p>Agora no nosso diretório mysql (/etc/wildfly-9.0.2.Final/modules/system/layers/base/com/mysql) vamos criar um outro diretório com o nome de main.</p>
-<ṕ>Agora vamos acessar o repositório do maven e vamos fazer download do MySQL JDBC versão 5.1.37.</p>
+Vamos acessar o diretório do **Wildfly** e vamos até **wildfly-9.0.2.Final/modules/system/layers/base/com**, agora vamos criar um diretório com o nome de mysql.</p>
+Agora no nosso diretório mysql (wildfly-9.0.2.Final/modules/system/layers/base/com/mysql) vamos criar um outro diretório com o nome de main.
+Agora vamos acessar o repositório do maven e vamos fazer download do **MySQL JDBC versão 5.1.37**.
 
 - Repositório Maven: http://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.37
 
-<p>Depois que completar o download vamos copiar nosso arquivo .jar do MySQL para o nosso diretório wildfly-9.0.2.Final/modules/system/layers/base/com/mysql/main.</p>
+Depois que completar o download vamos copiar nosso arquivo .jar do MySQL para o nosso diretório **wildfly-9.0.2.Final/modules/system/layers/base/com/mysql/main**.
 
-<p>Ainda no nosso diretório /etc/wildfly-9.0.2.Final/modules/system/layers/base/com/mysql/main vamos criar um arquivo chamado module.xml, e vamos adicionar o código abaixo.</p>
+Ainda no nosso diretório **wildfly-9.0.2.Final/modules/system/layers/base/com/mysql/main** vamos criar um arquivo chamado module.xml, e vamos adicionar o código abaixo.
 
 ```javascript
 
@@ -40,7 +40,7 @@
 
 Agora vamos acessar o diretório /etc/wildfly-9.0.2.Final/standalone/configuration e vamos abrir o arquivo standalone.xml.
 
-Com o nosso arquivo aberto vamos procurar a tag <datasources>, você vai ver que já existe uma configuração de exemplo do banco h2, abaixo da configuração do h2 vamos colar o código abaixo com as informações de acesso a nossa base de dados que criamos.
+Com o nosso arquivo aberto vamos procurar a tag **datasources**, você vai ver que já existe uma configuração de exemplo do banco h2, abaixo da configuração do h2 vamos colar o código abaixo com as informações de acesso a nossa base de dados que criamos.
 
 
 ```javascript
@@ -66,7 +66,7 @@ Com o nosso arquivo aberto vamos procurar a tag <datasources>, você vai ver que
 ```
 
 
-Agora na tag **drivers** que fica logo abaixo da tag**datasource**vamos adicionar o código abaixo.
+Agora na tag **drivers** que fica logo abaixo da tag **datasource** vamos adicionar o código abaixo.
 
 ```javascript
 
@@ -76,4 +76,4 @@ Agora na tag **drivers** que fica logo abaixo da tag**datasource**vamos adiciona
 </driver>
 ```
 
-<p>Pronto, até aqui já temos o nosso Data Source configurado, agora na nossa aplicação vamos mudar nosso arquivo persistence.xml do JPA para trabalhar com o Data Source que criamos, vamos deixar ele com o código abaixo. </p>
+Pronto, até aqui já temos o nosso Data Source configurado, agora na nossa aplicação vamos mudar nosso arquivo persistence.xml do JPA para trabalhar com o Data Source que criamos, vamos deixar ele com o código abaixo.
