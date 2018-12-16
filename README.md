@@ -66,8 +66,7 @@ Com o nosso arquivo aberto vamos procurar a tag <datasources>, você vai ver que
 ```
 
 
-<p>Agora na tag **drivers** que fica logo abaixo da tag **datasource** vamos adicionar o código abaixo.</p>
-
+Agora na tag **drivers** que fica logo abaixo da tag**datasource**vamos adicionar o código abaixo.
 
 ```javascript
 
