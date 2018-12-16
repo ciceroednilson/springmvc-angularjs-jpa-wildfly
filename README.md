@@ -35,16 +35,15 @@
 <module name="javax.servlet.api" optional="true"/>
 </dependencies>
 </module>
+```
 
-...
 
-<p>Agora vamos acessar o diretório /etc/wildfly-9.0.2.Final/standalone/configuration e vamos abrir o arquivo standalone.xml.</p>
+Agora vamos acessar o diretório /etc/wildfly-9.0.2.Final/standalone/configuration e vamos abrir o arquivo standalone.xml.
 
-<p>Com o nosso arquivo aberto vamos procurar a tag <datasources>, você vai ver que já existe uma configuração de exemplo do banco h2, abaixo da configuração do h2 vamos colar o código abaixo com as informações de acesso a nossa base de dados que criamos.</p>
+Com o nosso arquivo aberto vamos procurar a tag <datasources>, você vai ver que já existe uma configuração de exemplo do banco h2, abaixo da configuração do h2 vamos colar o código abaixo com as informações de acesso a nossa base de dados que criamos.
 
 
 ```javascript
-
 <datasource jta="true" jndi-name="java:jboss/datasources/base_usuarioDS" pool-name="base_usuarioDS" enabled="true" use-java-context="true" use-ccm="true">
 <!– endereço da nossa base de dados –>
 <connection-url>jdbc:mysql://localhost:3306/base_usuario</connection-url>
@@ -64,8 +63,7 @@
 <share-prepared-statements>true</share-prepared-statements>
 </statement>
 </datasource>
-
-...
+```
 
 
 <p>Agora na tag <drivers> que fica logo abaixo da tag </datasource> vamos adicionar o código abaixo.</p>
@@ -77,8 +75,6 @@
 <driver name="mysql" module="com.mysql">
 <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
 </driver>
-
-...
-
+```
 
 <p>Pronto, até aqui já temos o nosso Data Source configurado, agora na nossa aplicação vamos mudar nosso arquivo persistence.xml do JPA para trabalhar com o Data Source que criamos, vamos deixar ele com o código abaixo. </p>
