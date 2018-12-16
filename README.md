@@ -20,11 +20,11 @@
 
 <p>Ainda no nosso diretório /etc/wildfly-9.0.2.Final/modules/system/layers/base/com/mysql/main vamos criar um arquivo chamado module.xml, e vamos adicionar o código abaixo.</p>
 
-...xml
+```javascript
 
 <?xml version="1.0″ encoding="UTF-8″?>
 
-<module xmlns="urn:jboss:module:1.1″ name="com.mysql">
+<module xmlns="urn:jboss:module:1.1" name="com.mysql">
 <resources>
 <!–NO ATRIBUTO PATH DEVEMOS COLOCAR O NOME COMPLETO DO NOSSO JAR DO MYSQL–> 
 <resource-root path="mysql-connector-java-5.1.37.jar"/>
@@ -43,7 +43,7 @@
 <p>Com o nosso arquivo aberto vamos procurar a tag <datasources>, você vai ver que já existe uma configuração de exemplo do banco h2, abaixo da configuração do h2 vamos colar o código abaixo com as informações de acesso a nossa base de dados que criamos.</p>
 
 
-...xml
+```javascript
 
 <datasource jta="true" jndi-name="java:jboss/datasources/base_usuarioDS" pool-name="base_usuarioDS" enabled="true" use-java-context="true" use-ccm="true">
 <!– endereço da nossa base de dados –>
@@ -71,7 +71,7 @@
 <p>Agora na tag <drivers> que fica logo abaixo da tag </datasource> vamos adicionar o código abaixo.</p>
 
 
-...xml
+```javascript
 
 
 <driver name="mysql" module="com.mysql">
